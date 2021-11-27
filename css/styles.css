@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+
+  --fb: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: linear-gradient(
+    to bottom,
+    hsl(37, 97%, 70%),
+    hsl(329, 70%, 58%)
+  );
+  --youtube: hsl(348, 97%, 39%);
+
+  --white-bg: hsl(0, 0%, 100%);
+  --top-bg: hsl(225, 100%, 98%);
+  --card-bg: hsl(227, 47%, 96%);
+  --card-bg-hover: hsl(234, 19%, 90%);
+  --text-clr: hsl(228, 12%, 44%);
+  --text-clr2: hsl(230, 17%, 14%);
+
+  --toggle: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: var(--text-clr2);
+  background-color: var(--white-bg);
+}
+
+body.active {
+  --white-bg: hsl(230, 17%, 14%);
+  --top-bg: hsl(232, 19%, 15%);
+  --card-bg: hsl(228, 28%, 20%);
+  --card-bg-hover: hsl(228, 24%, 30%);
+  --text-clr: hsl(228, 34%, 66%);
+  --text-clr2: hsl(0, 0%, 100%);
+
+  --toggle: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.toggle {
+  position: relative;
+  display: block;
+  width: 6rem;
+  height: 3rem;
+  border-radius: 3rem;
+  background: var(--toggle);
+  transition: 0.5s;
+  box-shadow: inset 0 8px 60px rgba(0 0 0 / 10%) inset 0 8px 8px
+      rgba(0 0 0 / 10%),
+    inset 0 -4px 4px rgba(0 0 0 / 10%);
+}
+
+.toggle .indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  background: var(--white-bg);
+  border-radius: 50%;
+  transform: scale(0.9);
+  cursor: pointer;
+  box-shadow: 0 8px 40px rgb(0 0 0 /50%), inset 0 4px 4px rgb(255 255 255 / 20%),
+    inset 0 -4px 4px rgb(255 255 255 / 20%);
+  transition: 0.5s;
+}
+
+.toggle.active .indicator {
+  right: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0;
+}
+
+.header-title p {
+  color: var(--text-clr);
+  font-weight: bold;
+}
+
+.header hr {
+  display: none;
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn p {
+  margin-right: 1rem;
+  color: var(--text-clr);
+  font-weight: bold;
+}
+
+.socials {
+  padding: 2rem 0;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+
+.socials .card-container .card {
+  background-color: var(--card-bg);
+  border-radius: 7px;
+  padding: 2rem 0;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.socials .card-container .card:hover {
+  background-color: var(--card-bg-hover);
+}
+
+.socials .card-container .card:nth-child(1) {
+  border-top: 4px solid var(--fb);
+}
+
+.socials .card-container .card:nth-child(2) {
+  border-top: 4px solid var(--twitter);
+}
+
+.socials .card-container .card:nth-child(3) {
+  border-image: var(--instagram);
+  border-image-slice: 1;
+  border-top-width: 4px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-top-style: solid;
+}
+
+.socials .card-container .card:nth-child(4) {
+  border-top: 4px solid var(--youtube);
+}
+
+.socials .card-container .card .top-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.socials .card-container .card .top-wrapper p {
+  margin-left: 0.7rem;
+  font-size: 1.2rem;
+  color: var(--text-clr);
+  font-weight: 700;
+}
+
+.socials .card-container .card .mid-wrapper h3 {
+  font-size: 4.5rem;
+}
+
+.socials .card-container .card .mid-wrapper p {
+  letter-spacing: 0.35rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--text-clr);
+}
+
+.socials .card-container .card .bottom-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.socials .card-container .card .bottom-wrapper p {
+  margin-left: 0.3rem;
+  color: var(--lime-green);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.socials .card-container .card:last-child .bottom-wrapper p {
+  color: var(--bright-red);
+}
+
+/* Overview */
+.overview {
+  padding: 3rem 0;
+}
+
+.overview h2 {
+  font-size: 2.4rem;
+  color: var(--text-clr);
+  margin-bottom: 2rem;
+}
+
+.overview .card-container .card {
+  background-color: var(--card-bg);
+  border-radius: 7px;
+  padding: 2.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.overview .card-container .card:hover {
+  background-color: var(--card-bg-hover);
+}
+
+.overview .card-container .card .top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.overview .card-container .card .top-wrapper p {
+  color: var(--text-clr);
+  font-weight: bold;
+}
+
+.overview .card-container .card .bottom-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overview .card-container .card .bottom-wrapper h4 {
+  font-size: 3rem;
+}
+
+.overview .card-container .card .bottom-wrapper .percent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overview .card-container .card .bottom-wrapper .percent p {
+  color: var(--lime-green);
+  margin-left: 0.3rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.overview .card-container .card:nth-child(2) .bottom-wrapper .percent p,
+.overview .card-container .card:nth-child(7) .bottom-wrapper .percent p,
+.overview .card-container .card:nth-child(8) .bottom-wrapper .percent p {
+  color: var(--bright-red);
+}
+
+/* Bottom Footer */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Media Queries */
+@media screen and (max-width: 37.5em) {
+  .container {
+    max-width: 34rem;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header-title h1 {
+    font-size: 2.5rem;
+  }
+
+  .header-title p {
+    font-size: 1.3rem;
+  }
+
+  .header hr {
+    display: block;
+    margin: 2rem 0;
+  }
+
+  .header .toggle-btn p {
+    margin-right: 23rem;
+  }
+
+  .header .toggle-btn .toggle {
+    width: 4rem;
+    height: 2rem;
+  }
+
+  .header .toggle-btn .toggle .indicator {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .toggle.active .indicator {
+    right: 1.8rem;
+  }
+
+  .socials .card-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .overview .card-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
